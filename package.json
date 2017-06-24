@@ -10,23 +10,27 @@
     ],
     "license": "MIT",
     "main": "dist/index.js",
+    "author": "Yuthasak Tanruengsri <yuthasak.tanruengsri@gmail.com>>",
     "repository": {
         "type": "git",
         "url": "https://github.com/ytanruengsri/storybook-addon-perf.git"
     },
     "scripts": {
-        "build": "babel --plugins=transform-runtime ./src --out-dir ./dist --copy-files"
+        "build": "NODE_ENV=production webpack",
+        "prepublish": "npm run build"
     },
     "dependencies": {
         "@storybook/addons": "^3.1.5",
-        "babel-runtime": "^6.23.0",
         "prop-types": "^15.5.10"
     },
     "devDependencies": {
-        "babel-cli": "^6.24.1",
+        "babel-core": "6.24.1",
+        "babel-loader": "7.0.0",
+        "babel-preset-babili": "0.0.12",
+        "babel-preset-env": "1.4.0",
         "react": "^15.5.4",
-        "react-addons-test-utils": "^15.5.1",
-        "react-dom": "^15.5.4"
+        "react-addons-perf": "^15.4.2",
+        "webpack": "2.5.1"
     },
     "peerDependencies": {
         "react": "*"
