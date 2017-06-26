@@ -18,7 +18,7 @@ Then create a file called `addons.js` in your storybook config.
 Add following content to it:
 
 ```js
-import 'storybook-addon-perf/dist/register';
+import 'storybook-addon-perf/register';
 ```
 
 Then write your stories like this:
