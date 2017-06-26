@@ -1,6 +1,6 @@
 {
     "name": "storybook-addon-perf",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Debug performance of your components.",
     "keywords": [
         "addon",

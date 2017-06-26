@@ -4,17 +4,27 @@ import addons from '@storybook/addons';
 import Perf from 'react-addons-perf';
 
 export class WithPerf extends React.Component {
+    constructor(...args) {
+        super(...args);
+        this.state = {
+            measurements: [],
+        };
+    }
+
     componentWillMount() {
         Perf.start();
     }
 
     componentDidMount() {
         Perf.stop();
+        this.setState({
+            measurements: Perf.getLastMeasurements(),
+        });
     }
 
     render() {
-        const measurements = Perf.getLastMeasurements();
         const { children } = this.props;
+        const { measurements } = this.state;
         const channel = addons.getChannel();
 
         // send the measurements to the channel.
