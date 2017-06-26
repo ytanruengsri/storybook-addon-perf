@@ -1,24 +1,34 @@
 const path = require('path');
 
 const config = {
-  entry: './src/index.js',
-  target: 'web',
+  entry: {
+		index: "./src/index",
+		register: "./src/register"
+	},
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: "dist/",
-    filename: 'index.js',
+    filename: '[name].js',
     library: 'storybook-addon-perf',
     libraryTarget: 'umd',
   },
   module: {
     rules: [
-      { test: /\.js$/, use: 'babel-loader' },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'],
+          },
+        },
+      },
     ],
   },
   externals: {
     "react": "react",
     "prop-types": "prop-types",
-    "@storybook/addons": "@storybook/addons",
     "react-addons-perf": "react-addons-perf",
   },
 };

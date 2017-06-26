@@ -1,6 +1,6 @@
 {
     "name": "storybook-addon-perf",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "Debug performance of your components.",
     "keywords": [
         "addon",
@@ -17,20 +17,22 @@
     },
     "scripts": {
         "build": "NODE_ENV=production webpack",
-        "prepublish": "npm run build"
+        "webpack-prepublish": "npm run build",
+        "prepublish": "node ../../scripts/prepublish.js"
     },
     "dependencies": {
         "@storybook/addons": "^3.1.5",
         "prop-types": "^15.5.10"
     },
     "devDependencies": {
-        "babel-core": "6.24.1",
-        "babel-loader": "7.0.0",
-        "babel-preset-babili": "0.0.12",
-        "babel-preset-env": "1.4.0",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
+        "babel-preset-babili": "^0.0.12",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.24.1",
         "react": "^15.5.4",
         "react-addons-perf": "^15.4.2",
-        "webpack": "2.5.1"
+        "webpack": "^2.5.1"
     },
     "peerDependencies": {
         "react": "*"
